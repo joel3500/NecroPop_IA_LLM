@@ -1,0 +1,301 @@
+
+*   /* selecteur universel */ /* ce truc sert à éviter les decallages de padding ou margin par defaut existant sur certaines balises */
+{   box-sizing : border-box;   }
+
+body 
+{   font-family : Trirong, Poppins, Sans-cherif; 
+    font-size : 20px; 
+    background-color: #f1f1f1;
+    background-repeat: no-repeat;
+}
+
+a, .creer_arbre
+{
+    color:blue;
+}
+
+.header_avec_image
+{
+    display : inline-block;
+    width : 60%;
+    margin-left: 20%;
+    height : 500px;
+    background-image: url("../img/family_tree_3.png");
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius : 10px;
+    padding : 10px;
+}
+
+.header_sans_image
+{
+    display : inline-block;
+    width : 60%;
+    margin-left: 20%;
+    height : 500px;
+    padding : 10px;
+}
+
+h2 
+{   font-family : Audiowide; 
+    text-align:center; 
+    color : blue;
+    width : 60%; 
+    margin : auto;
+    margin-bottom: 20px; 
+    border-bottom : 1px black solid; 
+    text-shadow:4px 4px 4px white;
+}
+
+img
+{
+    width : 10%;
+    height: 25%;
+}
+video 
+{ 
+    width: 320px; 
+    height : 240px;
+}
+.sous_section 
+{ 
+    text-align:center; 
+    color:blue; 
+    margin : auto; /*width : 60%;*/ 
+    margin-bottom: 10px; 
+    text-shadow:4px 4px 4px white;
+}
+
+label
+{
+    display : inline-block;
+    width : 60%;
+    margin-left : 20%;
+    text-align : left;
+}
+
+.les_buttons
+{
+    width : 60%;
+    margin : auto;
+    margin-bottom: 2%;
+    border : 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    border-radius : 10px;
+}
+
+.reponse_assistant
+{
+    display : inline-block;
+    background-color : white;
+    width : 60%;
+    margin-left : 20%;
+    min-height : 10%;
+    padding : 2%;
+    border-radius : 10px;
+    white-space : initial;
+    text-align : justify;
+    text-justify : auto; /*inter-word*/
+    font-size : 20px;
+    text-align : justify;
+    justify-content : space-around; 
+    border : 1px solid black;
+    color : blue;
+}
+/* Style pour la div qui contient uniquement l'image */
+.reponse_assistant > div:first-child {
+    height: 400px;  
+    width: 100%;    
+    overflow: hidden;  
+    position: relative;  
+    
+}
+
+/* Style pour l'image */
+.image_arbre {
+    width: 100%;    
+    height: 100%;   
+    object-fit: contain;  
+    display: block; 
+    
+}
+
+/* Style pour la div des boutons */
+.reponse_assistant > div:last-child {
+    margin-top: 20px;  /* Espace au-dessus des boutons */
+}
+
+#prompt
+{
+     border : 2px solid rgb(135, 135, 197);
+     color : blue;
+     min-height : 100px; 
+     width : 95%;
+     text-align: left;
+}
+
+.message_contrainte, .button_ok
+{
+    visibility : hidden;
+}
+
+button, .button_sites
+{
+    display : inline-block;
+    min-width : 10%;
+    min-height : 70px;
+    border-radius : 10px;
+    vertical-align : center;
+    text-align : center;
+    font-size : 20px;
+    cursor : pointer;
+    padding : 1%;
+    text-align : center;
+    color : blue;
+    margin : 20px;
+    margin-left : 2%;
+    margin-right : 2%;
+    height : 15%;
+    background-color: white;
+    border : 1px solid black;
+}
+
+.flex_lancer_prompt
+{
+    display : flex;
+    width : 95%;
+    margin : auto;
+    justify-content : space-between;
+    /*border : 1px dotted green;*/
+}
+
+.flex_lancer_prompt > .message_contrainte
+{
+    width : 75%;
+    max-height : 72px;
+    overflow-y : auto;
+    border : 1px dotted red;
+    color : orange;
+    margin : 20px;
+}
+
+.equipe
+{
+    text-align : left;
+    margin : auto;
+    color : white;
+}
+
+.principe
+{
+    display : inline-block;
+    width : 60%;
+    margin-left : 20%;
+    font-style : italic;
+    /*text-align : justify;
+    justify-content : space-around;*/
+}
+
+footer 
+{   position:fixed; 
+    left:10px; 
+    right:10px; 
+    bottom:10px; 
+    background:black; 
+    text-align:center; 
+    min-height:40px; 
+    color:rgba(255, 255, 255, 0.5);
+}
+
+form
+{
+    width : 60%;
+    margin : auto;
+    padding : 10px;
+    border : 1px solid black;
+    border-radius : 10px;
+}
+
+input {
+    width : 75%;
+    height : 50px;
+    margin-left : 2%;
+    border: 1px solid blue;
+    border-radius : 10px;
+    text-align : center;
+    font-size : 20px;
+}
+
+textarea
+{
+    margin-left : 2%;
+    font-size : 20px;
+    text-align : justify;
+    justify-content : space-around;
+    border: 1px solid blue;
+    min-height : 50px;
+}
+
+form
+{
+    margin-bottom: 20px;
+}
+
+iframe, video
+{
+    width: 100%;
+    height : 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* <= 768px : empile tout en 1 colonne, boutons full width */
+@media (max-width: 768px) {
+
+  .header_avec_image, .header_sans_image, .principe, h2, form { 
+    width: 90%; 
+    margin-left: 5%;
+   }
+  .les_buttons { 
+    flex-direction: column; 
+    width: 90%; 
+    margin-top: 20px;
+    margin-left: 5%;
+   }
+  .les_buttons > * { width: 90%; margin-left: 5%;}
+   form { 
+    margin-top: 30px;
+   }
+   video { 
+    width: 100%; 
+    height : auto;
+   }
+  footer { position: static; }  /* évite de recouvrir le contenu */
+}
+
+/* <= 480px : densifie encore */
+@media (max-width: 480px) {
+    
+  .header_avec_image, .header_sans_image, .principe, h2, form  { 
+    width: 90%; 
+    margin-left: 5%;
+  }
+  .les_buttons { 
+    flex-direction: column; 
+    width: 90%; 
+    margin-top: 20px;
+    margin-left: 5%;
+   }
+  .les_buttons > * { width: 90%; margin-left: 5%;}
+  form { 
+    margin-top: 30px;
+   }
+   video { 
+    width: 100%; 
+    height : auto;
+   }
+  :root { --space: 12px; }
+
+}

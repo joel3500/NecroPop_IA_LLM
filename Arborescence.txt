@@ -1,0 +1,15 @@
+
+
+/ (racine du repo)
+├─ apps/
+│  └─ necropop/
+│     ├─ main.py
+│     ├─ llm_client.py
+│     ├─ generation_arbre.py
+│     ├─ templates/
+│     ├─ static/
+│     ├─ requirements.txt
+│     ├─ apt.txt
+│     ├─ Procfile          # (optionnel)
+│     └─ runtime.txt       # (optionnel)
+└─ render.yaml             # Blueprint Render

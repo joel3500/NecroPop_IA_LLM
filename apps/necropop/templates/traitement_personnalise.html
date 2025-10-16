@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+	<!-- Entete de la page -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Travail d'équipe fait par : Claude Andréas, Brice et Dylan, et Joel </title>
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <script language="javascript" src="/static/js/personnalise.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Sofia|Trirong|Audiowide">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&effect=fire|neon|outline|emboss|shadow-multiple"> 
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+
+	<!-- Corps de la page -->
+	<body>
+        <h2> Nécrologie des Populations </h2>
+		
+        <header class="header_avec_image">
+		</header>
+
+        <p class="principe"> <strong> Arbre personnalisé : </strong> Quelqu'un vient de décéder dans votre entourage,
+            et il vous vient à l'idée de produire une arbre généalogique.
+           
+            Il est très important de partir de la racine (c'est à dire des ancêtres du defunt) jusqu'aux générations
+            récentes pour pouvoir obtenir un résultats sur le plan graphique.<br> 
+            
+            Ex : Si dans votre récit, Marc est le père de Luc, veuillez mentionner Marc en premier, avant de mentionner Luc, 
+            car notre système procède de facon chronologique. Vous pourrez toujours insérer un parent en plein 
+            milieu du texte. En cas d'oublie d'un ancêtre, effacez tout et recommencez à partir du début. 
+            Celà vous garantira l'obtention d'un meilleur résultat pour votre arbre Généalogique. <br>
+        </p><br>
+
+        <div class="les_buttons">
+            <button type="button" class="soumettre" title="Retourner sur la page d'accueil"><a href="{{ url_for('apercu_video') }}">Page d'accueil</a></button><br>
+            <button type="button" class="soumettre" title="Les Auteurs de ce site"><a href="{{ url_for('page_de_presentation') }}">Les Auteurs</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LepineCloutier"><a href="{{ url_for('traitement_lepinecloutier') }}">1 Lepine Cloutier</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LeNecrologue"><a href="{{ url_for('traitement_lenecrologue') }}">2 Le Necrologue</a></button><br>
+            <button type="button" class="soumettre" title="Désolé, pas encore disponible"><a href="{{ url_for('traitement_mesaieux') }}">3 Mes Aieux</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="{{ url_for('traitement_necroquebec') }}">4   Necrologie Quebec</a></button><br>
+            <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="{{ url_for('traitement_personnalise') }}">5 Écrire ma propre histoire</a></button><br>
+        
+        </div>
+
+        <form action="{{ url_for('traitement_personnalise') }}" method="POST">
+            <br><textarea type="text" id="prompt" name="texte_personnalise" placeholder="Mon grand-père s'appelle Augustin Adegbenlé (1905-2024). \n Il est L'époux de Ruth Oyénike. \n Ensemble ils ont 3 enfants : David Adégbenlé, Véronique Adégbenlé et Victor Adegbenlé. \n David Adégbenlé est l'époux de Kadiatou. \n  Ensemble, ils ont enfants :  Willfrid Adegbenlé, Terrence Adegbenlé, et Dorice Adegbenlé  \n  Véronique Adégbenlé est l'épouse de Sandé Oladélé.  \n  Ensemble, ils ont 3 enfants : Joel Sandé, Linda manuelle Sandé, et William Joseph Sandé. \n  Victor Adegbenlé est l'époux de Sonia Burgun.  \n  Ensemble, ils ont 4 enfants : Odilia meledge Ade, Elie Meledge Ade, Victoria Meledge Ade, et Josia Meledge Ade.">
+                </textarea><br> 
+            
+            <button  type="submit" class="button_exec" >Lancer</button>   
+        </form><br><br><br>
+        
+     <!--------------  reponse de l assistant            ------------------->
+     {% if fichier_json %}
+            
+     <label for="reponse_assistant">Réponse de l'assistant : </label>
+
+     <div type="text" class="reponse_assistant" name="reponse_assistant">
+
+    
+        {% if image_arbre %}
+        <div>
+            <img src="data:image/png;base64,{{ image_arbre }}" 
+                alt="Arbre Généalogique", class="image_arbre" >
+        </div>
+        {% endif %}
+        
+
+        <div>
+            <button id="save-png">
+      
+                <a href="{{ url_for('download_arbre', data=fichier_json) }}">
+                    Télécharger le fichier PNG de l'arbre
+                </a>
+         
+
+            </button>
+
+            <button id="save-json">
+            
+                <a href="{{ url_for('download_json', data=fichier_json) }}">
+                    Télécharger le fichier JSON de l'arbre
+                </a>
+            </button>
+        
+        </div>
+        
+
+     </div><br><br><br><br>
+
+
+    {% endif %} 
+
+	</body>
+	
+	<!-- Le pied de page -->
+	<footer>
+        Projet réalisé par : Andreas, Brice et Dylan et Joel | 8IAR101 A2024 : les grands modèles de Language | UQAC | Automne 2024 [ <a href="{{ url_for('page_de_presentation') }}">aperçu vidéo de la conceptualisation</a>­ ]
+	</footer>
+</html>       

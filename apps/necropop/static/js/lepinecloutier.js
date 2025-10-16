@@ -1,0 +1,1 @@
+console.log("La page Lepine Cloutier JS est chargée");

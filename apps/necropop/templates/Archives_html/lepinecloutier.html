@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Projet Necrologie : Claude Andréas, Joel, Brice et Dylan</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <script language="javascript" src="/static/js/lepinecloutier.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Sofia|Trirong|Audiowide">
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+    <body>
+        <h2> Nécrologie </h2>
+        <p class="principe"> <strong> Principe d'utilisation : </strong> Clikez sur le boutton <font color="blue">[ Chercher en parallèle ]</font> à droite 
+            pour <font color="blue">ouvrir le site Lepine Cloutier </font> sur une nouvelle fenetre. <br>
+            Chercher un defunt, et une fois que vous l'avez trouvé, <font color="blue">copier le lien url, et coller-le ici</font> 
+            dans la zone prévue à cet effet. <br> puis clikez sur <font color="blue">[ Créer l'arbre généalogique ]</font> <br>
+
+            Si vous ne le trouvez pas, Sélectionnez un autre des 4 sites qui vos sont proposés <br>
+        </p><br>
+
+        <div class="les_buttons">
+            <button type="button" class="soumettre" title="Retourner sur la page d'accueil"><a href="index.html">Page d'accueil</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LepineCloutier"><a href="lepinecloutier.html">Lepine Cloutier</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LeNecrologue"><a href="lenecrologue.html">Le Necro logue</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site MesAieux"><a href="mesaieux.html">Mes Aieux</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="necroquebec.html">Necrologie Quebec</a></button><br>
+            <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="personnalise.html">Écrire ma propre histoire</a></button><br>
+        </div>
+
+        <form action="/t_lepinecloutier" method="POST">
+            <label for="url">coller son lien url ici :</label><br>
+            <input type="text" id="url" name="url" required placeholder="https://www.lepinecloutier.com/fr/avis-de-deces/76828-suzanne-lachance#/"><br><br>
+            <button type="submit">Créer l'arbre généalogique</button>
+            <button type="button"><a href="https://www.lepinecloutier.com/fr/necrologie-avis-de-deces?page=1&number_items=24&sort=d_dod%2Fdesc" target="_blank">Chercher en parallèle un(e) defunt(e) sur le site Lepine Cloutier</a></button>
+        </form>
+
+    </body>
+
+</html>

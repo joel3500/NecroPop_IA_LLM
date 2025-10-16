@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: necropop
+    env: python
+    rootDir: apps/necropop
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      gunicorn main:app --workers 2 --threads 4 --timeout 120
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: DEBUG_LLM
+        value: "0"
+    buildFilter:
+      paths:
+        - apps/necropop/**

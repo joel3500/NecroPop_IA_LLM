@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projet Necrologie : Claude Andréas, Joel, Brice et Dylan</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <script language="javascript" src="/static/js/lepinecloutier.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Sofia|Trirong|Audiowide">
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+    <body>
+        <h2> Nécrologie des Populations </h2>
+
+        <header class="header_avec_image">
+		</header>
+
+        <p class="principe"> <strong> Principe d'utilisation : </strong> Clikez sur le boutton <font color="blue">[ Chercher en parallèle ]</font> à droite 
+            pour <font color="blue">ouvrir le site Mes Aieux </font> sur une nouvelle fenetre. <br>
+            Chercher un defunt, et une fois que vous l'avez trouvé, <font color="blue">copier le lien url, et coller-le ici</font> 
+            dans la zone prévue à cet effet. <br> puis clikez sur <font color="blue">[ Créer l'arbre généalogique ]</font> <br>
+
+            Si vous ne le trouvez pas, Sélectionnez un autre des 4 sites qui vos sont proposés <br>
+        </p><br>
+
+        <p class="principe"> <strong> Attention ! : </strong> <font color="red">Pour des raisons d'Éthique, 
+            nous avons retiré cette fonctinonnalié de notre site. Vous êtes priés d'aller directement sur 
+            la <strong>[5. Écrire ma propre histoire]</strong>. Voir [ <a href="{{ url_for('apercu_video') }}">l'apercu video 2</a>­ ]</font><br>
+            Sur demande, seules les familles des defunt(e)s des sites pourront juire des fontionnalités de [1, 2, 3 & 4] . 
+            Pour ce faire, vous ( familles ) pouvez contactez Joel SANDÉ au 514 677 2696 par texto pour que 
+            Je demande l'accord aux propriétaires du site visé. <br>
+        </p><br>
+
+        <div class="les_buttons">
+            <button type="button" class="soumettre" title="Retourner sur la page d'accueil"><a href="{{ url_for('apercu_video') }}">Page d'accueil</a></button><br>
+            <button type="button" class="soumettre" title="Les Auteurs de ce site"><a href="{{ url_for('page_de_presentation') }}">Les Auteurs</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LepineCloutier"><a href="{{ url_for('traitement_lepinecloutier') }}">1 Lepine Cloutier</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LeNecrologue"><a href="{{ url_for('traitement_lenecrologue') }}">2 Le Necrologue</a></button><br>
+            <button type="button" class="soumettre" title="Désolé, pas encore disponible"><a href="{{ url_for('traitement_mesaieux') }}">3 Mes Aieux</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="{{ url_for('traitement_necroquebec') }}">4 Necrologie Quebec</a></button><br>
+            <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="{{ url_for('traitement_personnalise') }}">5 Écrire ma propre histoire</a></button><br>
+        
+        </div>
+
+        <form action="{{ url_for('traitement_mesaieux') }}" method="post">
+            <label for="url">coller son lien url ici :</label><br>
+            <input type="text" id="url" name= "url_defunt" required placeholder="https://www.mesaieux.com/Necrologie/Armand-POULIN/812186"><br><br>
+            <button type="submit">Créer l'arbre généalogique</button>
+            <button type="button"><a href="https://www.mesaieux.com/Necrologie/" target="_blank">Chercher en parallèle un(e) defunt(e) sur le site Mes Aieux</a></button>
+        </form><br><br><br>
+
+        <!--------------  reponse de l assistant            ------------------->
+        
+        {% if fichier_json %}
+            
+         <label for="reponse_assistant">Réponse de l'assistant : </label>
+
+         <div type="text" class="reponse_assistant" name="reponse_assistant">
+
+           
+            {% if image_arbre %}
+            <div>
+                <img src="data:image/png;base64,{{ image_arbre }}" 
+                    alt="Arbre Généalogique", class="image_arbre" >
+            </div>
+            {% endif %}  
+            <div>
+                <button id="save-png">
+          
+                    <a href="{{ url_for('download_arbre', data=fichier_json) }}">
+                        Télécharger le fichier PNG de l'arbre
+                    </a>
+             
+   
+                </button>
+    
+                <button id="save-json">
+                
+                    <a href="{{ url_for('download_json', data=fichier_json) }}">
+                        Télécharger le fichier JSON de l'arbre
+                    </a>
+                </button>
+            
+            </div>
+         
+            
+
+         </div><br><br><br><br>
+
+
+        {% endif %} 
+
+    </body>
+
+    <!-- Le pied de page -->
+	<footer>
+        Projet réalisé par : Andreas, Brice et Dylan et Joel | 8IAR101 A2024 : les grands modèles de Language | UQAC | Automne 2024 [ <a href="{{ url_for('page_de_presentation') }}">aperçu vidéo de la conceptualisation</a>­ ]
+	</footer>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+	<!-- Entete de la page -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Travail d'équipe fait par : Andréas, Brice, Dylan et Joel </title>
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <script language="javascript" src="/static/js/index.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Sofia|Trirong|Audiowide">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&effect=fire|neon|outline|emboss|shadow-multiple"> 
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+
+	<!-- Corps de la page -->
+	<body>
+        <h2> Nécrologie des Populations </h2>
+		<header class="header_avec_image">
+			<p class="equipe"> Projet réalisé par : <br><br> 
+                                                                Claude Andreas Nguemtchom <br> 
+                                                                Joel Sandé <br> 
+                                                                Brice-Henry Andréa Mbama Gaporaud <br>
+                                                                Kenmatio Tenko Brygeul Dylane 
+            </p><br>
+
+            <p class="equipe">                     sous la direction de  : <br><br> 
+                                                   Prof. Pascal Fortin, ph.D 
+            </p>
+            <img src="/static/img/family_tree_1.png" alt="arbre genealogique">
+		</header><br><br>
+
+        <p class="principe"> <strong> Principe d'utilisation : </strong><br><br>
+            1 - 2 - 3 - 4 Quelqu'un vient de décéder dans une famille,
+            et il vous vient à l'idée de produire une arbre généalogique de cet individus. [ Nécrologie ] est un 
+            outil qui a été concu pour vous aider dans cette tâche. <br>
+            5 - Vous avez de la famille assez élargie, et il vous vient à l'idée de déssiner votre arbre généalogique, 
+            connaissant les époux et les enfants. <br><br>
+
+            (1 - 2 - 3 - 4) Vous avez ces 4 sites à partir desquels vous pouvez aller chercher un defunt qui vous interesse s'il y est présent.
+            Sélectionnez parmi les 4 premiers ci-dessous. Sinon, <br>
+            (5) <font color="blue">Choissez le 5e pour écrire votre propre histoire généalogique</font>. <br>  
+        </p><br>
+
+        <div class="les_buttons">
+            <button type="button" class="soumettre" title="Retourner sur la page d'accueil"><a href="{{ url_for('apercu_video') }}">Page d'accueil</a></button><br>
+            <button type="button" class="soumettre" title="Les Auteurs de ce site"><a href="{{ url_for('page_de_presentation') }}">Les Auteurs</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LepineCloutier"><a href="{{ url_for('traitement_lepinecloutier') }}">1 Lepine Cloutier</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LeNecrologue"><a href="{{ url_for('traitement_lenecrologue') }}">2 Le Necrologue</a></button><br>
+            <button type="button" class="soumettre" title="Désolé, pas encore disponible"><a href="{{ url_for('traitement_mesaieux') }}">3 Mes Aieux</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="{{ url_for('traitement_necroquebec') }}">4   Necrologie Quebec</a></button><br>
+            <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="{{ url_for('traitement_personnalise') }}">5 Écrire ma propre histoire</a></button><br>
+        </div><br><br>
+
+        <!--    Rouler du script Python sur du HTML  
+            https://www.youtube.com/watch?v=PvFshrgv9sc
+        -->
+	</body>
+
+	<!-- Le pied de page -->
+	<footer>
+        Projet réalisé par : Andreas, Brice et Dylan et Joel | 8IAR101 A2024 : les grands modèles de Language | UQAC | Automne 2024 [ <a href="{{ url_for('page_de_presentation') }}">aperçu vidéo de la conceptualisation</a>­ ]
+	</footer>
+</html>

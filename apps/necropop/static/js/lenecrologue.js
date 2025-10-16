@@ -1,0 +1,1 @@
+console.log("La page Le Necrologue JS est chargée");

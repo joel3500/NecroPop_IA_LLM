@@ -1,0 +1,58 @@
+# ---- Python / Build ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+.cache/
+.pytest_cache/
+.mypy_cache/
+ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ---- Virtualenvs (racine et sous-dossiers) ----
+.venv/
+venv/
+
+archives_python/
+
+# ---- Environnements / Secrets ----
+.env
+.env.*
+!.env.example          # garde un modèle sans secrets
+.envrc
+.python-version        # fichier perso (pyenv), inutile en CI
+
+# ---- Logs / artefacts temporaires ----
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ---- Flask ----
+instance/              # dossier instance facultatif
+*.db
+*.sqlite3
+
+# ---- OS / IDE ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Front (au cas où) ----
+node_modules/
+*.map
+
+# ---- Fichiers de sortie de démo ----
+arbre_*.png
+test.png
+sortie_llm.json

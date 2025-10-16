@@ -1,0 +1,1 @@
+console.log("La page Necro Québec JS est chargée");

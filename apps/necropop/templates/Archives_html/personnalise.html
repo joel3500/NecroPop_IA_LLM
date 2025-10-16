@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+	<!-- Entete de la page -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Travail d'équipe fait par : Claude Andréas, Brice et Dylan, et Joel </title>
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <script language="javascript" src="/static/js/personnalise.js"></script>
+    </footer>
+    </html>      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Sofia|Trirong|Audiowide">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&effect=fire|neon|outline|emboss|shadow-multiple"> 
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+
+	<!-- Corps de la page -->
+	<body>
+        <h2> Nécrologie </h2>
+		
+        <header>
+		</header>
+
+        <p class="principe"> <strong> Arbre personnalisé : </strong> Quelqu'un vient de décéder dans votre entourage,
+            et il vous vient à l'idée de produire une arbre généalogique.
+           
+            Il est très important de partir de la racine (c'est à dire des ancêtres du defunt) jusqu'aux générations
+            récentes pour pouvoir obtenir un résultats sur le plan graphique.<br> 
+            
+            Ex : Si dans votre récit, Marc est le père de Luc, veuillez mentionner Marc en premier, avant de mentionner Luc, 
+            car notre système procède de facon chronologique. Vous pourrez toujours insérer un parent en plein 
+            milieu du texte. En cas d'oublie d'un ancêtre, effacez tout et recommencez à partir du début. 
+            Celà vous garantira l'obtention d'un meilleur résultat pour votre arbre Généalogique. <br>
+        </p><br>
+
+        <div class="les_buttons">
+            <button type="button" class="soumettre" title="Retourner sur la page d'accueil"><a href="index.html">Page d'accueil</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LepineCloutier"><a href="lepinecloutier.html">Lepine Cloutier</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site LeNecrologue"><a href="lenecrologue.html">Le Necro logue</a></button><br>
+            <button type="button" class="soumettre" title="Désolé, pas encore disponible"><a href="mesaieux.html">Mes Aieux</a></button><br>
+            <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="necroquebec.html">Necrologie Quebec</a></button><br>
+            <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="personnalise.html">Écrire ma propre histoire</a></button><br>
+        </div>
+
+        <form action="/personnalise" method="POST">
+            <br><textarea type="text" id="prompt" name="prompt" required placeholder="Entrez votre prompt ici..."></textarea><br> 
+  
+            <button  type="submit" class="button_exec">Exécuter</button> 
+            <!--
+                <div class="flex_lancer_prompt">
+                <div class="message_contrainte">
+                    Vous ne pouvez pas lancer un prompt vide ! vous devez écrire quelque chose ! <br>
+                    Ex : André a deux enfants, un garçon appelé Bilé, et une fille appelée Lucie.
+                </div>
+                <button type="button" class="button_ok" onclick="OK()">Compris</button>
+                </div>
+            -->
+        </form>    
+        
+
+        <!--------------  reponse de l assistant            ------------------->
+        <label for="reponse_assistant">Réponse de l'assistant : </label>
+
+        <div type="text" class="reponse_assistant" name="reponse_assistant"> </div><br><br><br><br>
+        
+    <!--    Rouler du script Python sur du HTML
+        https://www.youtube.com/watch?v=PvFshrgv9sc
+    -->
+
+	</body>
+	
+	<!-- Le pied de page -->
+	<footer>
+        Travail d'équipe fait par : Andreas, Joel, Brice et Dylan | 8IAR101 A2024 : les grands modèles de Language | UQAC | Automne 2024
+	</footer>
+</html>

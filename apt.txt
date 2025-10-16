@@ -1,0 +1,5 @@
+# Packages système nécessaires en prod (Render)
+graphviz
+
+# (Optionnel mais utile pour de beaux labels en français)
+fonts-dejavu-core
