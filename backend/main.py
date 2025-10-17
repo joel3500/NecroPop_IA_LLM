@@ -36,6 +36,12 @@ CORS(main)
 OUTPUT_FOLDER = os.path.join(main.root_path, "static", "output")
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
+#------------------------------------------------------------------------------#
+# Ajoute au démarrage un log pour vérifier dot : ( ce dot m'a TROP FATIGUÉ !! )
+import shutil, logging
+logging.info("dot -> %s", shutil.which("dot"))
+#------------------------------------------------------------------------------#
+
 def _ensure_graphviz_on_path():
     import os, shutil
     if shutil.which("dot"):
