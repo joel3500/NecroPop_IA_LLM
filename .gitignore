@@ -54,3 +54,7 @@ node_modules/
 arbre_*.png
 test.png
 sortie_llm.json
+
+!requirements.txt
+!apt.txt
+!runtime.txt
