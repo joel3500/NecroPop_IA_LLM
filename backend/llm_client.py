@@ -3,6 +3,7 @@ from __future__ import annotations
 import json, os, re
 from typing import Any, Dict, Optional
 from openai import OpenAI
+from pathlib import Path
 
 # .env (facultatif)
 try:
@@ -18,6 +19,9 @@ _MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 _BASE_URL = os.getenv("OPENAI_BASE_URL") or None
 DEBUG = os.getenv("DEBUG_LLM", "0") == "1"
 RETURN_STUB_IF_FAIL = os.getenv("LLM_RETURN_STUB_IF_FAIL", "0") == "1"
+
+BASE_DIR = Path(__file__).resolve().parent   # = backend/
+load_dotenv(BASE_DIR / ".env")               # charge backend/.env en local
 
 client = OpenAI(api_key=_API_KEY, base_url=_BASE_URL) if _BASE_URL else OpenAI(api_key=_API_KEY)
 

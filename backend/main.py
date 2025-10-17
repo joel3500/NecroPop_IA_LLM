@@ -12,16 +12,19 @@ from typing import Dict, Any
 import graphviz
 
 
-from apps.necropop.generation_arbre import creer_arbre_genealogique
-from apps.necropop.llm_client import extract_family_json
+from .generation_arbre import creer_arbre_genealogique
+from .llm_client import extract_family_json
 
 # Import des scrapers existants (inchangés)
-from apps.necropop.lenecrologue import *
-from apps.necropop.lepinecloutier import *
-from apps.necropop.mesaieux import *
-from apps.necropop.necroquebec import *
+from .lenecrologue import *
+from .lepinecloutier import *
+from .mesaieux import *
+from .necroquebec import *
 
-main = Flask(__name__)
+main = Flask(__name__, 
+             template_folder="templates", 
+             static_folder="static")
+
 CORS(main)
 
 #===========================================================================================#
@@ -29,6 +32,7 @@ CORS(main)
 #                                         - les fichiers .JSON ainsi que                    #
 #                                         - les fichiers arbres.png                         #
 #===========================================================================================#  
+
 OUTPUT_FOLDER = os.path.join(main.root_path, "static", "output")
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
@@ -46,7 +50,6 @@ def _ensure_graphviz_on_path():
 
 _ensure_graphviz_on_path()
 
-
 def creer_image_from_json(fichier_json: str) -> str:
     """Génère l'image PNG (base64) à partir du JSON conformément à generation_arbre.py"""
     dot = creer_arbre_genealogique(fichier_json)
@@ -58,6 +61,11 @@ def creer_image_from_json(fichier_json: str) -> str:
 def traitement_llm(infos: str) -> str:
     """Appelle l'IA moderne pour obtenir un JSON structuré."""
     return extract_family_json(infos)
+
+
+@main.get("/healthz")
+def healthz():
+    return {"status":"ok"}, 200
 
 
 @main.route("/")
@@ -198,6 +206,4 @@ def download_arbre():
 #----------------------------------------------------------------------------------#
 
 if __name__ == "__main__":
-    # Utilisez main_modern.py durant la migration. Une fois validé,
-    # renommez-le en main.py si souhaité.
     main.run(debug=True, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))

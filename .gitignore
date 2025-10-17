@@ -25,10 +25,8 @@ venv/
 archives_python/
 
 # ---- Environnements / Secrets ----
-.env
-.env.*
+backend/.env
 !.env.example          # garde un modèle sans secrets
-.envrc
 .python-version        # fichier perso (pyenv), inutile en CI
 
 # ---- Logs / artefacts temporaires ----

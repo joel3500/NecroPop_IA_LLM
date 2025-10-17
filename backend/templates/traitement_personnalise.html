@@ -40,11 +40,10 @@
             <button type="button" class="soumettre" title="Désolé, pas encore disponible"><a href="{{ url_for('traitement_mesaieux') }}">3 Mes Aieux</a></button><br>
             <button type="button" class="soumettre" title="Aller chercher sur le site Necrologie Québec"><a href="{{ url_for('traitement_necroquebec') }}">4   Necrologie Quebec</a></button><br>
             <button type="button" class="soumettre" title="Ecrire ma propre histoire"><a href="{{ url_for('traitement_personnalise') }}">5 Écrire ma propre histoire</a></button><br>
-        
         </div>
 
         <form action="{{ url_for('traitement_personnalise') }}" method="POST">
-            <br><textarea type="text" id="prompt" name="texte_personnalise" placeholder="Mon grand-père s'appelle Augustin Adegbenlé (1905-2024). \n Il est L'époux de Ruth Oyénike. \n Ensemble ils ont 3 enfants : David Adégbenlé, Véronique Adégbenlé et Victor Adegbenlé. \n David Adégbenlé est l'époux de Kadiatou. \n  Ensemble, ils ont enfants :  Willfrid Adegbenlé, Terrence Adegbenlé, et Dorice Adegbenlé  \n  Véronique Adégbenlé est l'épouse de Sandé Oladélé.  \n  Ensemble, ils ont 3 enfants : Joel Sandé, Linda manuelle Sandé, et William Joseph Sandé. \n  Victor Adegbenlé est l'époux de Sonia Burgun.  \n  Ensemble, ils ont 4 enfants : Odilia meledge Ade, Elie Meledge Ade, Victoria Meledge Ade, et Josia Meledge Ade.">
+            <br><textarea type="text" id="prompt" name="texte_personnalise" placeholder="Mon grand-père s'appelle Augustin Adegbenlé (1905-2024)...Il est L'époux de Ruth Oyénike...">
                 </textarea><br> 
             
             <button  type="submit" class="button_exec" >Lancer</button>   
@@ -54,10 +53,8 @@
      {% if fichier_json %}
             
      <label for="reponse_assistant">Réponse de l'assistant : </label>
-
      <div type="text" class="reponse_assistant" name="reponse_assistant">
 
-    
         {% if image_arbre %}
         <div>
             <img src="data:image/png;base64,{{ image_arbre }}" 
@@ -65,7 +62,6 @@
         </div>
         {% endif %}
         
-
         <div>
             <button id="save-png">
       

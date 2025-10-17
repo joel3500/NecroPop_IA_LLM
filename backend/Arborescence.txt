@@ -1,0 +1,17 @@
+
+
+/( racine du repo )                      # racine du repo
+├─ backend/
+│  ├─ __init__.py       # (fichier vide)
+│  ├─ main.py
+│  ├─ llm_client.py
+│  ├─ generation_arbre.py
+│  ├─ lenecrologue.py
+│  ├─ lepinecloutier.py
+│  ├─ mesaieux.py
+│  ├─ necroquebec.py
+│  ├─ templates/
+│  └─ static/
+├─ render.yaml                  # blueprint → rootDir: backend
+└─ (le reste : requirements, apt.txt, etc. restent dans backend/)                 
+└─ .gitignore
