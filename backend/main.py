@@ -12,14 +12,14 @@ from typing import Dict, Any
 import graphviz
 
 
-from .generation_arbre import creer_arbre_genealogique
-from .llm_client import extract_family_json
+from generation_arbre import creer_arbre_genealogique
+from llm_client import extract_family_json
 
 # Import des scrapers existants (inchangés)
-from .lenecrologue import *
-from .lepinecloutier import *
-from .mesaieux import *
-from .necroquebec import *
+from lenecrologue import *
+from lepinecloutier import *
+from mesaieux import *
+from necroquebec import *
 
 main = Flask(__name__, 
              template_folder="templates", 
