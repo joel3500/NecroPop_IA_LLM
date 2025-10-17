@@ -5,11 +5,13 @@ services:
     rootDir: backend
     plan: free
     buildCommand: |
+      echo "PWD=$(pwd)"
+      ls -la
+      test -f requirements.txt || (echo "requirements.txt ABSENT" && exit 2)
       pip install --upgrade pip
       pip install -r requirements.txt
-    web: gunicorn app.main:app --workers 2 --threads 4 --timeout 120
     startCommand: |
-         gunicorn app.main:app --workers 2 --threads 4 --timeout 120
+         gunicorn main:app --workers 2 --threads 4 --timeout 120
     autoDeploy: true
     envVars:
       - key: OPENAI_API_KEY
